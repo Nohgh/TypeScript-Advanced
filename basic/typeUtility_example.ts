@@ -17,12 +17,12 @@ type AdminSafeUser = Readonly<Omit<User, "password">>;
 type CreateUserDto = Partial<User> &
   Required<Pick<User, "name" | "email" | "password">> & { id?: number };
 
-function createUser(userData: CreateUserDto) {
+function createUser1(userData: CreateUserDto) {
   console.log(userData);
   //사용자 생성 로직
 }
 
-createUser({
+createUser1({
   name: "Noh",
   email: "dd",
   password: "sss",
