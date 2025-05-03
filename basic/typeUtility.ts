@@ -13,14 +13,19 @@ interface User {
 }
 
 function updateUser1(user: User) {
-  //모든 필드를 업데이트 해야함
+  user.id = 2;
+  return user;
 }
 //TO-BE
 function updaterUser(user: Partial<User>) {
   //일부 필드만 업데이트 가능
   return user;
 }
-
+// updateUser1({name:"ss") 밑의 오류 발생 (모든 속성을 업데이트 해야한다.)
+/**
+ * Argument of type '{ name: string; }' is not assignable to parameter of type 'User'.
+  Type '{ name: string; }' is missing the following properties from type 'User': id, emailts(2345)
+ */
 updaterUser({ name: "Noh" }); //유효
 
 //------------------------------------------------------------------------------------------------------------------
