@@ -18,3 +18,6 @@ numbers.forEach((item) => {
 const doubled = numbers.map((value) => value * 2);
 
 //조건부 타입과 타입추론
+type IsArray<T> = T extends any[] ? true : false; //extends는 타입에 대한 제약조건을 부여한다.
+const isNumberArray: IsArray<number[]> = true; //true로 추론
+const isStringArray: IsArray<string> = false;
