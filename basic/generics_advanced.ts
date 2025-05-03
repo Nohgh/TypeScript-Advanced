@@ -38,3 +38,16 @@ let numberNumberic = new GenericNumber<number>(0, (x, y) => x + y);
 console.log(numberNumberic.add(5, 10));
 
 //제너릭 제약 조건
+//length속성을 갖는 객체 타입
+interface Lengthwise {
+  length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T) {
+  console.log(arg.length);
+  return arg;
+}
+
+loggingIdentity([1, 2, 3]);
+loggingIdentity({ length: 10, value: 3 });
+// loggingIdentity(3); 오류, number에는 .length가 없다.
