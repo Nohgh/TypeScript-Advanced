@@ -19,6 +19,7 @@ function padding(a: number, b?: number, c?: number, d?: number) {
     c = a;
     d = b;
   }
+
   return {
     top: a,
     right: b,
