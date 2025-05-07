@@ -10,11 +10,11 @@ type JSONValue =
 type JSONObject = { [key: string]: JSONValue };
 
 function parseJSON(json: string): JSONValue {
-  return JSON.parse(json);
+  return JSON.parse(json); //js 객체를 json 문자열로 변환
 }
 
 function stringifyJSON(value: JSONValue): string {
-  return JSON.stringify(value);
+  return JSON.stringify(value); //json문자열을 js객체로 변환
 }
 
 //사용예
