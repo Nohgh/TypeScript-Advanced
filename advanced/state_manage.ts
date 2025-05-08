@@ -18,4 +18,25 @@ interface UserState extends BaseState {
 interface AdminState extends BaseState {
   userRole: "admin";
   username: string;
+  adminToken: string;
 }
+
+type AppState = GuestState | UserState | AdminState;
+
+function updateState(
+  currentState: AppState,
+  update: Partial<AppState>,
+): AppState {
+  return { ...currentState, ...update } as AppState;
+}
+
+//사용 예시
+let state: AppState = { isLoading: true, error: null, userRole: "guest" };
+
+state = updateState(state, {
+  isLoading: false,
+  userRole: "user",
+  username: "john_doe",
+});
+
+state = updateState(state, { userRole: "admin", adminToken: "secret_token" });
