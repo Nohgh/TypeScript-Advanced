@@ -9,9 +9,24 @@ function log(message: string, userId?: string) {
 }
 
 //함수 오버로딩
-function padding(all: number);
-function padding(topAndBotton: number, leftAndRight: number);
-function padding(top: number, right: number, bottom: number, left: number);
+function padding(all: number): {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+};
+function padding(
+  topAndBotton: number,
+  leftAndRight: number,
+): { top: number; right: number; bottom: number; left: number };
+
+function padding(
+  top: number,
+  right: number,
+  bottom: number,
+  left: number,
+): { top: number; right: number; bottom: number; left: number };
+
 function padding(a: number, b?: number, c?: number, d?: number) {
   if (b === undefined && c === undefined && d === undefined) {
     b = c = d = a;
